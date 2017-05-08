@@ -11,13 +11,15 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
 
+	var fromItem: MKMapItem!
+	var toItem: MKMapItem!
+	
 	@IBOutlet weak var mapView: MKMapView!
 	let regionRadius: CLLocationDistance = 1000
 	let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
 		centerMapOnLocation(location: initialLocation)
 		addAnnotationToMap()
 	}
@@ -26,7 +28,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 		let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
 		                                                          regionRadius * 2.0, regionRadius * 2.0)
 		mapView.setRegion(coordinateRegion, animated: true)
-		
 	}
 	
 	func addAnnotationToMap() {
@@ -41,7 +42,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 	func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!,
 	             calloutAccessoryControlTapped control: UIControl!) {
 		  let location = view.annotation as! Artwork
-		  let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+		  let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeTransit]
 		  location.mapItem().openInMaps(launchOptions: launchOptions)
 	}
 	
