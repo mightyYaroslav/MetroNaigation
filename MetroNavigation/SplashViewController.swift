@@ -75,6 +75,7 @@ class SplashViewController: UIViewController, CLLocationManagerDelegate {
 	
 	func configureLocationManager() {
 		locationManager.delegate = self
+		locationManager.distanceFilter = 10000
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		locationManager.requestLocation()
 	}
