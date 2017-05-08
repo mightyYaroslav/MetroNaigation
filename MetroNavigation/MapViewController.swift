@@ -36,6 +36,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 		for item in [fromItem, toItem] {
 			let annotation = MKPointAnnotation()
 			annotation.title = item?.name
+			if item == fromItem {
+				annotation.subtitle = "Source"
+			} else {
+				annotation.subtitle = "Destination"
+			}
 			annotation.coordinate = (item?.placemark.coordinate)!
 			mapView.addAnnotation(annotation)
 		}
@@ -88,22 +93,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 		renderer.lineWidth = 5.0
 		return renderer
 	}
-//	
-//	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//			let identifier = "pin"
-//			var view: MKPinAnnotationView
-//			if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-//				as? MKPinAnnotationView {
-//				dequeuedView.annotation = annotation
-//				view = dequeuedView
-//			} else {
-//				view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//				view.canShowCallout = true
-//				view.calloutOffset = CGPoint(x: -5, y: 5)
-//				view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
-//			}
-//			return view
-//	}
 
 }
 
