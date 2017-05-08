@@ -23,37 +23,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myc-8S-bEw">
-                                <rect key="frame" x="0.0" y="111" width="375" height="556"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="301" width="375" height="310"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ZnA-Io-ewT" id="7PB-QE-3ph"/>
                                     <outlet property="delegate" destination="ZnA-Io-ewT" id="Kjw-gF-DYS"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCn-T0-ccr">
-                                <rect key="frame" x="16" y="53" width="343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDy-J4-KNc">
-                                <rect key="frame" x="16" y="82" width="343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select subway stations:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XlX-em-i1S">
-                                <rect key="frame" x="16" y="20" width="180" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5Z-81-Gz6">
-                                <rect key="frame" x="313" y="15" width="30" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCn-T0-ccr" customClass="MarginedLabel" customModule="MetroNavigation" customModuleProvider="target">
+                                <rect key="frame" x="16" y="189" width="343" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Jdv-WF-9d4"/>
-                                    <constraint firstAttribute="width" constant="30" id="MKh-Z7-B93"/>
+                                    <constraint firstAttribute="height" constant="40" id="BNa-OG-nOU"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDy-J4-KNc" customClass="MarginedLabel" customModule="MetroNavigation" customModuleProvider="target">
+                                <rect key="frame" x="16" y="253" width="343" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Udu-44-clr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MetroSide" translatesAutoresizingMaskIntoConstraints="NO" id="DAY-PL-ANS">
+                                <rect key="frame" x="0.0" y="20" width="375" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="sME-CC-0Jc"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5Z-81-Gz6">
+                                <rect key="frame" x="16" y="619" width="343" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="eyH-Z1-I1G"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Go"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="selectionToMap" id="Zu5-2V-F9L"/>
@@ -62,27 +67,29 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Myc-8S-bEw" secondAttribute="trailing" id="G3Y-cO-UxY"/>
-                            <constraint firstItem="o5Z-81-Gz6" firstAttribute="leading" secondItem="XlX-em-i1S" secondAttribute="trailing" constant="117" id="M8v-sm-TsV"/>
-                            <constraint firstItem="dDy-J4-KNc" firstAttribute="leading" secondItem="7Ls-CJ-qri" secondAttribute="leadingMargin" id="NQ7-yk-yaB"/>
-                            <constraint firstItem="Myc-8S-bEw" firstAttribute="top" secondItem="dDy-J4-KNc" secondAttribute="bottom" constant="8" id="W3V-5w-f3n"/>
-                            <constraint firstItem="pCn-T0-ccr" firstAttribute="leading" secondItem="7Ls-CJ-qri" secondAttribute="leadingMargin" id="Wve-fN-YAF"/>
-                            <constraint firstItem="o5Z-81-Gz6" firstAttribute="top" secondItem="7Ls-CJ-qri" secondAttribute="topMargin" constant="15" id="b7f-lb-3bq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dDy-J4-KNc" secondAttribute="trailing" id="dDy-SQ-bVt"/>
-                            <constraint firstItem="dDy-J4-KNc" firstAttribute="top" secondItem="pCn-T0-ccr" secondAttribute="bottom" constant="8" id="huY-mO-Rxq"/>
-                            <constraint firstItem="VLf-Fg-pgt" firstAttribute="top" secondItem="Myc-8S-bEw" secondAttribute="bottom" id="j7k-PY-MIa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="o5Z-81-Gz6" secondAttribute="trailing" constant="16" id="kqZ-ab-eU1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="pCn-T0-ccr" secondAttribute="trailing" id="oAp-UG-Qcv"/>
-                            <constraint firstItem="pCn-T0-ccr" firstAttribute="top" secondItem="XlX-em-i1S" secondAttribute="bottom" constant="12" id="seC-Mi-AY0"/>
-                            <constraint firstItem="Myc-8S-bEw" firstAttribute="leading" secondItem="7Ls-CJ-qri" secondAttribute="leading" id="sgR-L3-gsm"/>
-                            <constraint firstItem="XlX-em-i1S" firstAttribute="leading" secondItem="7Ls-CJ-qri" secondAttribute="leadingMargin" id="ymN-3j-vz0"/>
-                            <constraint firstItem="XlX-em-i1S" firstAttribute="top" secondItem="jpT-cA-B6l" secondAttribute="bottom" id="zHQ-iO-zVW"/>
+                            <constraint firstItem="Myc-8S-bEw" firstAttribute="leading" secondItem="7Ls-CJ-qri" secondAttribute="leading" id="14i-K7-IHa"/>
+                            <constraint firstItem="o5Z-81-Gz6" firstAttribute="leading" secondItem="7Ls-CJ-qri" secondAttribute="leadingMargin" id="1SS-0r-fvE"/>
+                            <constraint firstItem="VLf-Fg-pgt" firstAttribute="top" secondItem="o5Z-81-Gz6" secondAttribute="bottom" constant="8" id="CQG-zi-mvn"/>
+                            <constraint firstItem="pCn-T0-ccr" firstAttribute="leading" secondItem="7Ls-CJ-qri" secondAttribute="leadingMargin" id="Jv9-Pp-xua"/>
+                            <constraint firstItem="pCn-T0-ccr" firstAttribute="top" secondItem="DAY-PL-ANS" secondAttribute="bottom" constant="19" id="Llr-o3-Qbr"/>
+                            <constraint firstItem="Myc-8S-bEw" firstAttribute="top" secondItem="dDy-J4-KNc" secondAttribute="bottom" constant="8" id="MOf-sg-pMI"/>
+                            <constraint firstItem="o5Z-81-Gz6" firstAttribute="trailing" secondItem="7Ls-CJ-qri" secondAttribute="trailingMargin" id="Mhk-39-2Ae"/>
+                            <constraint firstItem="DAY-PL-ANS" firstAttribute="top" secondItem="jpT-cA-B6l" secondAttribute="bottom" id="XQv-ac-bO3"/>
+                            <constraint firstItem="o5Z-81-Gz6" firstAttribute="top" secondItem="Myc-8S-bEw" secondAttribute="bottom" constant="8" id="XnT-sD-BNQ"/>
+                            <constraint firstItem="dDy-J4-KNc" firstAttribute="top" secondItem="pCn-T0-ccr" secondAttribute="bottom" constant="24" id="gTa-NP-BZS"/>
+                            <constraint firstItem="dDy-J4-KNc" firstAttribute="trailing" secondItem="7Ls-CJ-qri" secondAttribute="trailingMargin" id="kPy-MS-59c"/>
+                            <constraint firstAttribute="trailing" secondItem="DAY-PL-ANS" secondAttribute="trailing" id="ms7-SE-oET"/>
+                            <constraint firstItem="pCn-T0-ccr" firstAttribute="trailing" secondItem="7Ls-CJ-qri" secondAttribute="trailingMargin" id="oru-Nd-Gij"/>
+                            <constraint firstItem="DAY-PL-ANS" firstAttribute="leading" secondItem="7Ls-CJ-qri" secondAttribute="leading" id="xLQ-QP-8Lf"/>
+                            <constraint firstItem="dDy-J4-KNc" firstAttribute="leading" secondItem="7Ls-CJ-qri" secondAttribute="leadingMargin" id="xmx-kT-KQ2"/>
+                            <constraint firstAttribute="trailing" secondItem="Myc-8S-bEw" secondAttribute="trailing" id="zhn-pk-430"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Station Picker" id="feO-6e-buY"/>
                     <connections>
                         <outlet property="fromLabel" destination="pCn-T0-ccr" id="x6a-7Z-YRi"/>
+                        <outlet property="goButton" destination="o5Z-81-Gz6" id="LnN-mP-wlW"/>
                         <outlet property="stationPickerView" destination="Myc-8S-bEw" id="u3b-TO-Q6q"/>
                         <outlet property="toLabel" destination="dDy-J4-KNc" id="tFU-Zc-hb9"/>
                     </connections>
@@ -189,4 +196,7 @@
             <point key="canvasLocation" x="-594.39999999999998" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MetroSide" width="1000" height="355"/>
+    </resources>
 </document>

@@ -19,10 +19,27 @@ class SelectionViewController: UIViewController, UIPickerViewDataSource, UIPicke
 	@IBOutlet weak var fromLabel: UILabel!
 	@IBOutlet weak var toLabel: UILabel!
 	@IBOutlet weak var stationPickerView: UIPickerView!
+	@IBOutlet weak var goButton: UIButton!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		[fromLabel, toLabel].forEach(beautify)
+		beautify(button: goButton)
+		
+		fromLabel.text = "From: " + stations[0].name!
+		toLabel.text = "To: " + stations[0].name!
     }
+	
+	func beautify(label: UILabel) {
+		label.layer.borderWidth = 2.0
+		label.layer.borderColor = UIColor.lightGray.cgColor
+		label.layer.cornerRadius = 10.0
+	}
+	
+	func beautify(button: UIButton) {
+		button.layer.borderWidth = 2.0
+		button.layer.borderColor = UIColor.blue.cgColor
+	}
 	
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
 		return 2
@@ -41,9 +58,9 @@ class SelectionViewController: UIViewController, UIPickerViewDataSource, UIPicke
 		if !stations.isEmpty {
 			if component == 0 {
 				fromIndex = row
-				fromLabel.text = stations[row].name
+				fromLabel.text = "From: " + stations[row].name!
 			} else if component == 1 {
-				toLabel.text = stations[row].name
+				toLabel.text = "To: " + stations[row].name!
 				toIndex = row
 			}
 		}

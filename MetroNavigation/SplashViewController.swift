@@ -34,6 +34,11 @@ class SplashViewController: UIViewController, CLLocationManagerDelegate {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
+		
+	}
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
 		startAnimation()
 	}
 	
@@ -46,7 +51,7 @@ class SplashViewController: UIViewController, CLLocationManagerDelegate {
 		let indicatorWidth: CGFloat = 60
 		let indicatorHeight: CGFloat = 60
 		
-		let indicatorX = (loadingView.bounds.width - indicatorWidth) / 2
+		let indicatorX = (UIScreen.main.bounds.width - indicatorWidth) / 2
 		let indicatorY = (loadingView.bounds.height - indicatorHeight) / 2
 		
 		animationIndicator = NVActivityIndicatorView(frame: CGRect(x: indicatorX, y:indicatorY, width: indicatorWidth, height: indicatorHeight), type: .ballRotate, color: UIColor(hex: 0x205FAB))
@@ -98,14 +103,13 @@ class SplashViewController: UIViewController, CLLocationManagerDelegate {
 				
 				if error != nil {
 					print("Error occured in search: \(error!.localizedDescription)")
-				} else if response!.mapItems.count == 0 {
-					print("No matches found")
-				} else {
-					print("Matches found")
+					
+				} else if response!.mapItems.count != 0 {
 					
 					for item in response!.mapItems {
 						self.stations.append(item as MKMapItem)
 					}
+					
 					self.performSegue(withIdentifier: "splashToSelection", sender: self)
 					search.cancel()
 				}

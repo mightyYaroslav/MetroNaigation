@@ -17,6 +17,7 @@
 		C45B4D2B1EC0B6EA00D74092 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B4D2A1EC0B6EA00D74092 /* SelectionViewController.swift */; };
 		C45B4D531EC0E5D800D74092 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B4D521EC0E5D800D74092 /* SplashViewController.swift */; };
 		C45B4D551EC0F3C700D74092 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B4D541EC0F3C700D74092 /* Extensions.swift */; };
+		C45B4D591EC1021A00D74092 /* MarginedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B4D581EC1021A00D74092 /* MarginedLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		C45B4D2A1EC0B6EA00D74092 /* SelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		C45B4D521EC0E5D800D74092 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		C45B4D541EC0F3C700D74092 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../Extensions.swift; sourceTree = "<group>"; };
+		C45B4D581EC1021A00D74092 /* MarginedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarginedLabel.swift; sourceTree = "<group>"; };
 		CAABF8EDD139B99A34939280 /* Pods_MetroNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetroNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9FC4EAFEF8296665061D9B /* Pods-MetroNavigation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetroNavigation.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetroNavigation/Pods-MetroNavigation.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +114,7 @@
 		C45B4D571EC0F57100D74092 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				C45B4D581EC1021A00D74092 /* MarginedLabel.swift */,
 				C45B4D541EC0F3C700D74092 /* Extensions.swift */,
 			);
 			name = Custom;
@@ -251,6 +254,7 @@
 				C45B4D2B1EC0B6EA00D74092 /* SelectionViewController.swift in Sources */,
 				C403BCD01EC09E9F003812B2 /* AppDelegate.swift in Sources */,
 				C45B4D531EC0E5D800D74092 /* SplashViewController.swift in Sources */,
+				C45B4D591EC1021A00D74092 /* MarginedLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

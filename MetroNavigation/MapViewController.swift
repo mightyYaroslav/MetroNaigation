@@ -23,19 +23,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		locationManager.delegate = self
-		locationManager.desiredAccuracy = kCLLocationAccuracyBest
-		locationManager.requestLocation()
+		centerMapOnLocation(location: fromItem.placemark.location!)
+		configureLocationManager()
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		navigationController?.navigationBar.isHidden = false
+		navigationController?.isNavigationBarHidden = false
 	}
 	
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
-		navigationController?.navigationBar.isHidden = true
+		navigationController?.isNavigationBarHidden = true
+	}
+	
+	func configureLocationManager() {
+		locationManager.delegate = self
+		locationManager.desiredAccuracy = kCLLocationAccuracyBest
+		locationManager.requestLocation()
 	}
 	
 	func centerMapOnLocation(location: CLLocation) {
