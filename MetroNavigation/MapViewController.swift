@@ -17,7 +17,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 	
 	@IBOutlet weak var mapView: MKMapView!
 	let regionRadius: CLLocationDistance = 1000
-	let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
 	
 	var locationManager = CLLocationManager()
 	var userLocation: CLLocation?
@@ -48,7 +47,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 	
 	func direct() {
 		let request = MKDirectionsRequest()
-		request.transportType = .transit
 		request.source = fromItem
 		request.destination = toItem
 		request.requestsAlternateRoutes = false

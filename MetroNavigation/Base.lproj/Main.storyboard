@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xhU-wS-3Pu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6KT-xZ-eIr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Selection View Controller-->
+        <!--Station selection-->
         <scene sceneID="c5C-8Y-n8w">
             <objects>
-                <viewController id="ZnA-Io-ewT" customClass="SelectionViewController" customModule="MetroNavigation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Station selection" id="ZnA-Io-ewT" customClass="SelectionViewController" customModule="MetroNavigation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jpT-cA-B6l"/>
                         <viewControllerLayoutGuide type="bottom" id="VLf-Fg-pgt"/>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myc-8S-bEw">
-                                <rect key="frame" x="0.0" y="155" width="375" height="512"/>
+                                <rect key="frame" x="0.0" y="111" width="375" height="556"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ZnA-Io-ewT" id="7PB-QE-3ph"/>
@@ -31,19 +31,19 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCn-T0-ccr">
-                                <rect key="frame" x="16" y="97" width="343" height="21"/>
+                                <rect key="frame" x="16" y="53" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDy-J4-KNc">
-                                <rect key="frame" x="16" y="126" width="343" height="21"/>
+                                <rect key="frame" x="16" y="82" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select subway stations:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XlX-em-i1S">
-                                <rect key="frame" x="16" y="64" width="180" height="21"/>
+                                <rect key="frame" x="16" y="20" width="180" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -79,7 +79,8 @@
                             <constraint firstItem="XlX-em-i1S" firstAttribute="top" secondItem="jpT-cA-B6l" secondAttribute="bottom" id="zHQ-iO-zVW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="feO-6e-buY"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Station Picker" id="feO-6e-buY"/>
                     <connections>
                         <outlet property="fromLabel" destination="pCn-T0-ccr" id="x6a-7Z-YRi"/>
                         <outlet property="stationPickerView" destination="Myc-8S-bEw" id="u3b-TO-Q6q"/>
@@ -88,12 +89,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8h-Hc-CaB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="165.59999999999999" y="138.98050974512745"/>
+            <point key="canvasLocation" x="1104.8" y="138.98050974512745"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Route-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="MetroNavigation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Route" id="BYZ-38-t0r" customClass="MapViewController" customModule="MetroNavigation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -117,31 +118,54 @@
                             <constraint firstItem="Tqr-rL-mUa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iIU-ui-kNa"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="mapView" destination="Tqr-rL-mUa" id="hvq-hk-NdV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2015.2" y="138.98050974512745"/>
+        </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="UJN-gO-lD6">
+            <objects>
+                <viewController id="DrI-Ko-KQz" customClass="SplashViewController" customModule="MetroNavigation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MS5-XN-oiZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hx2-MB-pIm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6mG-FW-aat">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qdu-Sc-GGY"/>
+                    <connections>
+                        <segue destination="ZnA-Io-ewT" kind="show" identifier="splashToSelection" id="O1X-IV-tK0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Icz-ws-SKx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="279" y="139"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="l1e-Bx-4ZR">
+        <scene sceneID="S1y-Ho-tLT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xhU-wS-3Pu" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="6KT-xZ-eIr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qK8-M7-u63">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LCe-6g-Hm9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ZnA-Io-ewT" kind="relationship" relationship="rootViewController" id="T3p-WC-rqi"/>
+                        <segue destination="DrI-Ko-KQz" kind="relationship" relationship="rootViewController" id="QFo-Vx-7DR"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QXf-Gd-o4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sIE-HK-WLw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-773.60000000000002" y="138.98050974512745"/>
+            <point key="canvasLocation" x="-594.39999999999998" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>

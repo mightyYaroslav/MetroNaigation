@@ -8,18 +8,13 @@
 
 import UIKit
 import MapKit
-import CoreLocation
 
-class SelectionViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, CLLocationManagerDelegate {
+class SelectionViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 	
 	var fromIndex = 0
 	var toIndex = 0
 	
-	var stations = [MKMapItem]()
-	let searchText = "subway station"
-	
-	var locationManager = CLLocationManager()
-	var userLocation: CLLocation?
+	var stations: [MKMapItem]!
 	
 	@IBOutlet weak var fromLabel: UILabel!
 	@IBOutlet weak var toLabel: UILabel!
@@ -27,48 +22,7 @@ class SelectionViewController: UIViewController, UIPickerViewDataSource, UIPicke
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		locationManager.delegate = self
-		locationManager.desiredAccuracy = kCLLocationAccuracyBest
-		locationManager.requestLocation()
     }
-	
-	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		userLocation = locations[0]
-		stations.removeAll()
-		search()
-	}
-	
-	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-		print(error.localizedDescription)
-	}
-	
-	func search() {
-		if let userLocation = userLocation {
-			
-			let request = MKLocalSearchRequest()
-			
-			request.naturalLanguageQuery = searchText
-			request.region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
-			
-			let search = MKLocalSearch(request: request)
-			
-			search.start(completionHandler: {(response, error) in
-				
-				if error != nil {
-					print("Error occured in search: \(error!.localizedDescription)")
-				} else if response!.mapItems.count == 0 {
-					print("No matches found")
-				} else {
-					print("Matches found")
-					
-					for item in response!.mapItems {
-						self.stations.append(item as MKMapItem)
-					}
-					self.stationPickerView.reloadAllComponents()
-				}
-			})
-		}
-	}
 	
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
 		return 2
