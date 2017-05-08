@@ -138,16 +138,37 @@
                     <view key="view" contentMode="scaleToFill" id="6mG-FW-aat">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Metro Navigation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="th6-5t-R0e">
+                                <rect key="frame" x="96.5" y="319.5" width="182.5" height="29"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o83-dQ-aBy">
+                                <rect key="frame" x="0.0" y="357" width="375" height="310"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="th6-5t-R0e" firstAttribute="centerY" secondItem="6mG-FW-aat" secondAttribute="centerY" id="2UW-UI-gzE"/>
+                            <constraint firstAttribute="trailing" secondItem="o83-dQ-aBy" secondAttribute="trailing" id="DOE-yn-8bO"/>
+                            <constraint firstItem="o83-dQ-aBy" firstAttribute="top" secondItem="th6-5t-R0e" secondAttribute="bottom" constant="8" id="LDz-u1-T4a"/>
+                            <constraint firstItem="o83-dQ-aBy" firstAttribute="leading" secondItem="6mG-FW-aat" secondAttribute="leading" id="UDO-RR-vCl"/>
+                            <constraint firstItem="th6-5t-R0e" firstAttribute="centerX" secondItem="6mG-FW-aat" secondAttribute="centerX" id="jaw-7K-yMv"/>
+                            <constraint firstAttribute="bottom" secondItem="o83-dQ-aBy" secondAttribute="bottom" id="xPJ-OU-hGN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qdu-Sc-GGY"/>
                     <connections>
+                        <outlet property="loadingView" destination="o83-dQ-aBy" id="c0l-E1-QqA"/>
                         <segue destination="ZnA-Io-ewT" kind="show" identifier="splashToSelection" id="O1X-IV-tK0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Icz-ws-SKx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="279" y="139"/>
+            <point key="canvasLocation" x="277.60000000000002" y="138.98050974512745"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="S1y-Ho-tLT">

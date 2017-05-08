@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MetroNavigation/SplashViewController.swift"
-            timestampString = "515961283.570294"
+            timestampString = "515961864.98586"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "configureAnimation()"
             landmarkType = "7">
          </BreakpointContent>

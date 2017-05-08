@@ -13,7 +13,8 @@ import NVActivityIndicatorView
 
 class SplashViewController: UIViewController, CLLocationManagerDelegate {
 
-	let loadingView = UIView()
+	
+	@IBOutlet weak var loadingView: UIView!
 	var animationIndicator: NVActivityIndicatorView!
 	
 	var fromIndex = 0
@@ -31,6 +32,11 @@ class SplashViewController: UIViewController, CLLocationManagerDelegate {
 		configureLocationManager()
 	}
 	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		startAnimation()
+	}
+	
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
 		stopAnimation()
@@ -40,8 +46,8 @@ class SplashViewController: UIViewController, CLLocationManagerDelegate {
 		let indicatorWidth: CGFloat = 60
 		let indicatorHeight: CGFloat = 60
 		
-		let indicatorX = (view.bounds.width - indicatorWidth) / 2
-		let indicatorY = (view.bounds.height - indicatorHeight / 2)
+		let indicatorX = (loadingView.bounds.width - indicatorWidth) / 2
+		let indicatorY = (loadingView.bounds.height - indicatorHeight) / 2
 		
 		animationIndicator = NVActivityIndicatorView(frame: CGRect(x: indicatorX, y:indicatorY, width: indicatorWidth, height: indicatorHeight), type: .ballRotate, color: UIColor(hex: 0x205FAB))
 	}
@@ -101,6 +107,7 @@ class SplashViewController: UIViewController, CLLocationManagerDelegate {
 						self.stations.append(item as MKMapItem)
 					}
 					self.performSegue(withIdentifier: "splashToSelection", sender: self)
+					search.cancel()
 				}
 			})
 		}
