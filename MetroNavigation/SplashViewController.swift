@@ -96,7 +96,7 @@ class SplashViewController: UIViewController, CLLocationManagerDelegate {
 			let request = MKLocalSearchRequest()
 			
 			request.naturalLanguageQuery = searchText
-			request.region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 100000, 100000)
+			request.region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 40000, 40000)
 			
 			let search = MKLocalSearch(request: request)
 			
