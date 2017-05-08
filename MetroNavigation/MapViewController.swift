@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate {
 
 	@IBOutlet weak var mapView: MKMapView!
 	let regionRadius: CLLocationDistance = 1000
@@ -36,6 +36,13 @@ class ViewController: UIViewController, MKMapViewDelegate {
 		                      coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
 		
 		mapView.addAnnotation(artwork)
+	}
+	
+	func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!,
+	             calloutAccessoryControlTapped control: UIControl!) {
+		  let location = view.annotation as! Artwork
+		  let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+		  location.mapItem().openInMaps(launchOptions: launchOptions)
 	}
 	
 	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
