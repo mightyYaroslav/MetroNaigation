@@ -8,8 +8,9 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
 	var fromItem: MKMapItem!
 	var toItem: MKMapItem!
@@ -18,10 +19,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 	let regionRadius: CLLocationDistance = 1000
 	let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
 	
+	var locationManager = CLLocationManager()
+	var userLocation: CLLocation?
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		centerMapOnLocation(location: initialLocation)
-		addAnnotationToMap()
+		locationManager.delegate = self
+		locationManager.desiredAccuracy = kCLLocationAccuracyBest
+		locationManager.requestLocation()
 	}
 	
 	func centerMapOnLocation(location: CLLocation) {
@@ -29,44 +34,60 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 		                                                          regionRadius * 2.0, regionRadius * 2.0)
 		mapView.setRegion(coordinateRegion, animated: true)
 	}
+
 	
-	func addAnnotationToMap() {
-		let artwork = Artwork(title: "King David Kalakaua",
-		                      locationName: "Waikiki Gateway Park",
-		                      discipline: "Sculpture",
-		                      coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
+	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		userLocation = locations[0]
+		direct()
+	}
+	
+	
+	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+		print(error.localizedDescription)
+	}
+	
+	func direct() {
+		let request = MKDirectionsRequest()
+		request.transportType = .transit
+		request.source = fromItem
+		request.destination = toItem
+		request.requestsAlternateRoutes = false
 		
-		mapView.addAnnotation(artwork)
-	}
-	
-	func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!,
-	             calloutAccessoryControlTapped control: UIControl!) {
-		  let location = view.annotation as! Artwork
-		  let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeTransit]
-		  location.mapItem().openInMaps(launchOptions: launchOptions)
-	}
-	
-	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-		if let annotation = annotation as? Artwork {
-			let identifier = "pin"
-			var view: MKPinAnnotationView
-			if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-				as? MKPinAnnotationView {
-				dequeuedView.annotation = annotation
-				view = dequeuedView
+		let directions = MKDirections(request: request)
+		
+		directions.calculate(completionHandler: {(response, error) in
+			if error != nil {
+				print("Error getting directions")
 			} else {
-				view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-				view.canShowCallout = true
-				view.calloutOffset = CGPoint(x: -5, y: 5)
-				view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+				self.showRoute(response!)
 			}
-			return view
-		}
-		return nil
+		})
 	}
 	
+	func showRoute(_ response: MKDirectionsResponse) {
+		for route in response.routes {
+			mapView.add(route.polyline,
+                level: MKOverlayLevel.aboveRoads)
+			
+			for step in route.steps {
+				print(step.instructions)
+			}
+		}
+		
+		let region =
+			MKCoordinateRegionMakeWithDistance(userLocation!.coordinate, 2000, 2000)
+		
+		mapView.setRegion(region, animated: true)
+	}
 	
-
-
+	func mapView(_ mapView: MKMapView, rendererFor
+		overlay: MKOverlay) -> MKOverlayRenderer {
+		let renderer = MKPolylineRenderer(overlay: overlay)
+		
+		renderer.strokeColor = UIColor.blue
+		renderer.lineWidth = 5.0
+		return renderer
+	}
+	
 }
 
