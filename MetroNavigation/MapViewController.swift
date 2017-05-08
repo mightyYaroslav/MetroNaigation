@@ -27,16 +27,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 		configureLocationManager()
 	}
 	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		navigationController?.isNavigationBarHidden = false
-	}
-	
-	override func viewDidDisappear(_ animated: Bool) {
-		super.viewDidDisappear(animated)
-		navigationController?.isNavigationBarHidden = true
-	}
-	
 	func configureLocationManager() {
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest

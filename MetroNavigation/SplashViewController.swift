@@ -121,7 +121,8 @@ class SplashViewController: UIViewController, CLLocationManagerDelegate {
 	// MARK: - Navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "splashToSelection" {
-			let vc = segue.destination as! SelectionViewController
+			let nvc = segue.destination as! UINavigationController
+			let vc = nvc.viewControllers[0] as! SelectionViewController
 			vc.stations = stations
 		}
 	}
