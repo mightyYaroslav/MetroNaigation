@@ -9,9 +9,13 @@
 import UIKit
 import MapKit
 import CoreLocation
+import NVActivityIndicatorView
 
 class SplashViewController: UIViewController, CLLocationManagerDelegate {
 
+	let loadingView = UIView()
+	var animationIndicator: NVActivityIndicatorView!
+	
 	var fromIndex = 0
 	var toIndex = 0
 	
@@ -23,6 +27,42 @@ class SplashViewController: UIViewController, CLLocationManagerDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		configureAnimation()
+		configureLocationManager()
+	}
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		stopAnimation()
+	}
+	
+	func configureAnimation() {
+		let indicatorWidth: CGFloat = 60
+		let indicatorHeight: CGFloat = 60
+		
+		let indicatorX = (view.bounds.width - indicatorWidth) / 2
+		let indicatorY = (view.bounds.height - indicatorHeight / 2)
+		
+		animationIndicator = NVActivityIndicatorView(frame: CGRect(x: indicatorX, y:indicatorY, width: indicatorWidth, height: indicatorHeight), type: .ballRotate, color: UIColor(hex: 0x205FAB))
+	}
+
+	func startAnimation() {
+		loadingView.addSubview(animationIndicator)
+		loadingView.isHidden = true
+		animationIndicator.isHidden = false
+		view.addSubview(loadingView)
+		
+		animationIndicator.startAnimating()
+		loadingView.isHidden = false
+	}
+	
+	func stopAnimation() {
+		animationIndicator.stopAnimating()
+		loadingView.isHidden = true
+		loadingView.removeFromSuperview()
+	}
+	
+	func configureLocationManager() {
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		locationManager.requestLocation()

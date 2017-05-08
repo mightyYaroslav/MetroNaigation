@@ -28,6 +28,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 		locationManager.requestLocation()
 	}
 	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		navigationController?.navigationBar.isHidden = false
+	}
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		navigationController?.navigationBar.isHidden = true
+	}
+	
 	func centerMapOnLocation(location: CLLocation) {
 		let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
 		                                                          regionRadius * 2.0, regionRadius * 2.0)

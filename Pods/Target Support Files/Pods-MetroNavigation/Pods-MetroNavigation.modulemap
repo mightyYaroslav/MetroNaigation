@@ -1,0 +1,6 @@
+framework module Pods_MetroNavigation {
+  umbrella header "Pods-MetroNavigation-umbrella.h"
+
+  export *
+  module * { export * }
+}

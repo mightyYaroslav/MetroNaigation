@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68968794E9CA008247AE6512 /* Pods_MetroNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAABF8EDD139B99A34939280 /* Pods_MetroNavigation.framework */; };
 		C403BCD01EC09E9F003812B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403BCCF1EC09E9F003812B2 /* AppDelegate.swift */; };
 		C403BCD21EC09E9F003812B2 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403BCD11EC09E9F003812B2 /* MapViewController.swift */; };
 		C403BCD51EC09E9F003812B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C403BCD31EC09E9F003812B2 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04D3680F3F57E004C826D00D /* Pods-MetroNavigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetroNavigation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetroNavigation/Pods-MetroNavigation.debug.xcconfig"; sourceTree = "<group>"; };
 		C403BCCC1EC09E9F003812B2 /* MetroNavigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetroNavigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C403BCCF1EC09E9F003812B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C403BCD11EC09E9F003812B2 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +30,8 @@
 		C403BCE71EC0A860003812B2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C45B4D2A1EC0B6EA00D74092 /* SelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		C45B4D521EC0E5D800D74092 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		CAABF8EDD139B99A34939280 /* Pods_MetroNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetroNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB9FC4EAFEF8296665061D9B /* Pods-MetroNavigation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetroNavigation.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetroNavigation/Pods-MetroNavigation.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,18 +40,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				C403BCE81EC0A860003812B2 /* MapKit.framework in Frameworks */,
+				68968794E9CA008247AE6512 /* Pods_MetroNavigation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13D3132DD0EBBD91C998D7B0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				04D3680F3F57E004C826D00D /* Pods-MetroNavigation.debug.xcconfig */,
+				EB9FC4EAFEF8296665061D9B /* Pods-MetroNavigation.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C403BCC31EC09E9F003812B2 = {
 			isa = PBXGroup;
 			children = (
 				C403BCCE1EC09E9F003812B2 /* MetroNavigation */,
 				C403BCCD1EC09E9F003812B2 /* Products */,
 				C403BCE61EC0A860003812B2 /* Frameworks */,
+				13D3132DD0EBBD91C998D7B0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				C403BCE71EC0A860003812B2 /* MapKit.framework */,
+				CAABF8EDD139B99A34939280 /* Pods_MetroNavigation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -89,9 +105,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C403BCDE1EC09E9F003812B2 /* Build configuration list for PBXNativeTarget "MetroNavigation" */;
 			buildPhases = (
+				3EFD565A13C8A900612AC979 /* [CP] Check Pods Manifest.lock */,
 				C403BCC81EC09E9F003812B2 /* Sources */,
 				C403BCC91EC09E9F003812B2 /* Frameworks */,
 				C403BCCA1EC09E9F003812B2 /* Resources */,
+				98300BF94466AFE5E02FBA1E /* [CP] Embed Pods Frameworks */,
+				83648AC466D43EF01A9CFFE8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -154,6 +173,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3EFD565A13C8A900612AC979 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		83648AC466D43EF01A9CFFE8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetroNavigation/Pods-MetroNavigation-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98300BF94466AFE5E02FBA1E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetroNavigation/Pods-MetroNavigation-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C403BCC81EC09E9F003812B2 /* Sources */ = {
@@ -286,6 +353,7 @@
 		};
 		C403BCDF1EC09E9F003812B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04D3680F3F57E004C826D00D /* Pods-MetroNavigation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9NYGTP7W2S;
@@ -299,6 +367,7 @@
 		};
 		C403BCE01EC09E9F003812B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB9FC4EAFEF8296665061D9B /* Pods-MetroNavigation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9NYGTP7W2S;
