@@ -16,15 +16,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 	var toItem: MKMapItem!
 	
 	@IBOutlet weak var mapView: MKMapView!
-	let regionRadius: CLLocationDistance = 1000
 	
 	var locationManager = CLLocationManager()
 	var userLocation: CLLocation?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		centerMapOnLocation(location: fromItem.placemark.location!)
 		configureLocationManager()
+		addAnnotations()
 	}
 	
 	func configureLocationManager() {
@@ -33,12 +32,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 		locationManager.requestLocation()
 	}
 	
-	func centerMapOnLocation(location: CLLocation) {
-		let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-		                                                          regionRadius * 2.0, regionRadius * 2.0)
-		mapView.setRegion(coordinateRegion, animated: true)
+	func addAnnotations() {
+		for item in [fromItem, toItem] {
+			let annotation = MKPointAnnotation()
+			annotation.title = item?.name
+			annotation.coordinate = (item?.placemark.coordinate)!
+			mapView.addAnnotation(annotation)
+		}
 	}
-
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		userLocation = locations[0]
@@ -71,14 +72,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 		for route in response.routes {
 			mapView.add(route.polyline,
                 level: MKOverlayLevel.aboveRoads)
-			
-			for step in route.steps {
-				print(step.instructions)
-			}
 		}
 		
 		let region =
-			MKCoordinateRegionMakeWithDistance(userLocation!.coordinate, 2000, 2000)
+			MKCoordinateRegionMakeWithDistance(fromItem.placemark.coordinate, 2000, 2000)
 		
 		mapView.setRegion(region, animated: true)
 	}
@@ -91,6 +88,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 		renderer.lineWidth = 5.0
 		return renderer
 	}
-	
+//	
+//	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//			let identifier = "pin"
+//			var view: MKPinAnnotationView
+//			if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+//				as? MKPinAnnotationView {
+//				dequeuedView.annotation = annotation
+//				view = dequeuedView
+//			} else {
+//				view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+//				view.canShowCallout = true
+//				view.calloutOffset = CGPoint(x: -5, y: 5)
+//				view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+//			}
+//			return view
+//	}
+
 }
 
