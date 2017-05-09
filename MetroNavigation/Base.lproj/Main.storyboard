@@ -47,7 +47,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MetroSide" translatesAutoresizingMaskIntoConstraints="NO" id="DAY-PL-ANS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MetroSide" translatesAutoresizingMaskIntoConstraints="NO" id="DAY-PL-ANS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="sME-CC-0Jc"/>
@@ -182,7 +182,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Sn-eV-s3N" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Wzl-v1-xst">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Wzl-v1-xst">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
