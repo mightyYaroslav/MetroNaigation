@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import SystemConfiguration
 
 extension UIColor {
 	convenience init(red: Int, green: Int, blue: Int) {
@@ -22,4 +23,3 @@ extension UIColor {
 		self.init(red:(hex >> 16) & 0xff, green:(hex >> 8) & 0xff, blue:hex & 0xff)
 	}
 }
-
